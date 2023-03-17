@@ -120,10 +120,10 @@ void MainWindow::on_send_clicked()
     else {
         std::string msgtemp = msg.toLocal8Bit().data();
         ans = QString::fromLocal8Bit(Preter(msgtemp.c_str()));
-//      qDebug() << "ans = " + ans;
+//        qDebug() << "ans = " + ans;
         if(!ans.isEmpty()) ui->textEdit->append(ans);
     }
-    if(ans.compare("-",Qt::CaseInsensitive)) ui->textEdit->append("---");
+    if(!ans.compare("-",Qt::CaseInsensitive)) ui->textEdit->append("---");
     else ui->textEdit->append(">>>");
     //光标移动到末尾
     QTextCursor cursor = ui->textEdit->textCursor();
