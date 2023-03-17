@@ -123,7 +123,8 @@ void MainWindow::on_send_clicked()
 //      qDebug() << "ans = " + ans;
         if(!ans.isEmpty()) ui->textEdit->append(ans);
     }
-    ui->textEdit->append(">>>");
+    if(ans.compare("-",Qt::CaseInsensitive)) ui->textEdit->append("---");
+    else ui->textEdit->append(">>>");
     //光标移动到末尾
     QTextCursor cursor = ui->textEdit->textCursor();
     cursor.movePosition(QTextCursor::End);
